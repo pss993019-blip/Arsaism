@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arsia.com</title>
+    <meta name="description"
+          content="وب‌سایت شخصی من؛ آشنایی با علایق، مهارت‌ها و پروژه‌هایم.">
+
+    <style>
+        /* تنظیمات کلی صفحه */
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Tahoma, Arial, sans-serif;
+            background: #0b1120;
+            color: #f8fafc;
+            line-height: 1.9;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* منوی بالای سایت */
+        header {
+            background: #111c33;
+            border-bottom: 1px solid #29364d;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: #67e8f9;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: #cbd5e1;
+        }
+
+        nav a:hover {
+            color: #67e8f9;
+        }
+
+        /* بخش معرفی */
+        .hero {
+            text-align: center;
+            padding: 90px 0 75px;
+            background:
+                radial-gradient(ellipse at top, #172554, transparent 70%);
+        }
+
+        .avatar {
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            margin: auto;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #06b6d4, #6366f1);
+            font-size: 48px;
+            box-shadow: 0 0 45px #0891b233;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 46px);
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #67e8f9;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 15px auto 25px;
+            color: #cbd5e1;
+        }
+
+        .button {
+            display: inline-block;
+            background: #06b6d4;
+            color: #082f49;
+            border: none;
+            border-radius: 10px;
+            padding: 11px 22px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #67e8f9;
+            transform: translateY(-2px);
+        }
+
+        .button.secondary {
+            background: #1e293b;
+            color: white;
+            border: 1px solid #475569;
+        }
+
+        /* بخش‌های عمومی */
+        section.content-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 0 0 30px;
+            font-size: 28px;
+        }
+
+        .section-title span {
+            color: #67e8f9;
+        }
+
+        .about-box {
+            background: #111c33;
+            border: 1px solid #29364d;
+            border-radius: 18px;
+            padding: 25px;
+            color: #cbd5e1;
+        }
+
+        /* کارت‌ها */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #111c33;
+            border: 1px solid #29364d;
+            border-radius: 16px;
+            padding: 24px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            border-color: #06b6d4;
+            transform: translateY(-4px);
+        }
+
+        .card .emoji {
+            font-size: 32px;
+        }
+
+        .card h3 {
+            color: #67e8f9;
+            margin: 8px 0;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            margin-bottom: 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #164e63;
+            color: #a5f3fc;
+            padding: 3px 10px;
+            margin-top: 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* بخش تماس */
+        .contact {
+            text-align: center;
+            background: #111c33;
+            border: 1px solid #29364d;
+            border-radius: 18px;
+            padding: 30px 20px;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+        }
+
+        #message {
+            margin-top: 12px;
+            color: #67e8f9;
+            min-height: 30px;
+        }
+
+        footer {
+            border-top: 1px solid #29364d;
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        /* سازگاری با موبایل */
+        @media (max-width: 700px) {
+            .navbar {
+                justify-content: center;
+                padding: 14px 0;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            section.content-section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="#home" class="logo">وب‌سایت ارسیا ✦</a>
+
+            <nav aria-label="منوی اصلی">
+                <a href="#home">خانه</a>
+                <a href="#about">درباره من</a>
+                <a href="#skills">مهارت‌ها</a>
+                <a href="#projects">پروژه‌ها</a>
+                <a href="#contact">راه ارتباط با منننن</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- بخش معرفی -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="avatar" aria-label="نماد شخصی">👨‍💻</div>
+
+                <h1>سلام! من <span>ارسیا</span> هستم</h1>
+
+                <p>
+                    به وب‌سایت شخصی من خوش آمدی!
+                    من به کامپیوتر برنامه نویسی و یادگیری چیزهای جدید علاقه دارم.
+                    اینجا می‌توانی با علایق و پروژه‌های من آشنا شوی.
+                </p>
+
+                <a href="#about" class="button">بیشتر درباره من</a>
+                <a href="#projects" class="button secondary">
+                    دیدن پروژه‌ها
+                </a>
+            </div>
+        </section>
+
+        <!-- درباره من -->
+        <section class="content-section" id="about">
+            <div class="container">
+                <h2 class="section-title">درباره <span>من</span></h2>
+
+                <div class="about-box">
+                    <p>
+                        من یک علاقه‌مند به دنیای کامپیوتر و برنامه نویسی هستم.
+                        می‌خواهم مهندسی کامپیوتر و برنامه نویسی یاد بگیرم،
+                        وب‌سایت‌های جذاب بسازم و ایده‌هایم را
+                        به پروژه‌های واقعی تبدیل کنم.
+                    </p>
+
+                    <p>
+                        این سایت اولین قدم من در مسیر یادگیری طراحی وب است.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- مهارت‌ها -->
+        <section class="content-section" id="skills">
+            <div class="container">
+                <h2 class="section-title">علاقه‌ها و <span> کارکرد ها</span></h2>
+
+                <div class="cards">
+                    <article class="card">
+                        <div class="emoji">💻</div>
+                        <h3>برنامه‌نویسی</h3>
+                        <p>یادگیری HTML، CSS و JavaScript.</p>
+                        <span class="tag">در حال یادگیری</span>
+                    </article>
+
+                    <article class="card">
+                        <div class="emoji">🎮</div>
+                        <h3>ساخت بازی‌ها</h3>
+                        <p>درحال طراحی یک پروژه جدیدهستم و بزودی می گذارم</p>
+                        <span class="tag">درحال ساخت و پیشرفت</span>
+                    </article>
+
+                    <article class="card">
+                        <div class="emoji">🎨</div>
+                        <h3>طراحی</h3>
+                        <p>ساخت ظاهر زیبا برای سایت‌ها و پروژه‌ها.</p>
+                        <span class="tag">در حال پیشرفت</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- پروژه‌ها -->
+        <section class="content-section" id="projects">
+            <div class="container">
+                <h2 class="section-title">پروژه‌های <span>من</span></h2>
+
+                <div class="cards">
+                    <article class="card">
+                        <div class="emoji">🌐</div>
+                        <h3>اولین وب‌سایت</h3>
+                        <p>همین سایت شخصی که با HTML و CSS ساخته‌ام.</p>
+                    </article>
+
+                    <article class="card">
+                        <div class="emoji">🕹️</div>
+                        <h3>ایده بازی</h3>
+                        <p>یک ایده برای ساخت بازی با JavaScript.</p>
+                    </article>
+
+                    <article class="card">
+                        <div class="emoji">🚀</div>
+                        <h3>پروژه بعدی</h3>
+                        <p>به‌زودی پروژه‌های جدیدی به این بخش اضافه می‌کنم.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- تماس -->
+        <section class="content-section" id="contact">
+            <div class="container">
+                <h2 class="section-title">ارتباط با <span>من</span></h2>
+
+                <div class="contact">
+                    <p>
+                        از اینکه از سایت من دیدن کردی، ممنونم!ممنومنم واقعا😘🥰^_^;) باییییییییییییییییی
+                    </p>
+
+                    <button class="button" onclick="showMessage()">
+                        سلام بفرست 👋
+                    </button>
+
+                    <div id="message" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            © <span id="year">1405</span> وب‌سایت شخصی من
+            | ساخته‌شده با 😍
+        </p>
+    </footer>
+
+    <script>
+        // نمایش سال فعلی
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // عملکرد دکمه
+        function showMessage() {
+            document.getElementById("message").textContent =
+                "سلام خوبی منونم که بهم سلام دادی😘  👋 ممنون که به سایت من سر زدی!.";
+        }
+    </script>
+
+</body>
+</html>
